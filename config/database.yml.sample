@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 16
+
+development:
+  <<: *default
+  database: pushdis_development
+
+test:
+  <<: *default
+  database: pushdis_test
+
+production:
+  <<: *default
+  database: pushdis_production
+  username: pushdis
+  password: <%= ENV['PUSHDIS_DATABASE_PASSWORD'] %>
